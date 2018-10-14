@@ -1,0 +1,22 @@
+/*
+    Min egen eksterne CSS-fil. Bare lidt random styling på nogle selectors.
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2em;
+}
+
+header {
+    background: lightblue;
+    color: brown;
+    padding: 10px;
+    border-bottom: 2px darkblue solid;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#container {
+    margin: auto;
+    padding: 10px;
+}

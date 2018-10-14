@@ -1,15 +1,48 @@
+<!--
+    Hvad er jQuery?
+    jQuery er et JS-framework, der gør det lettere at lave komplekse og dynamiske sites
+    baseret på JavaScript - men på en meget mere enkel måde pga. de indbyggede definitioner.
+-->
+
 <!DOCTYPE html>
 <html lang="da-DK">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Øvelser med jQuery</title>
+    <title>Øvelser med jQuery og HTML5</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
 </head>
 <body>
-    <h1>Øvelser med jQuery</h1>
-    <p>Kommer snart...</p>
+    <!-- Selektoren "header" er ny i HTML5 -->
+    <header>
+        <h1>Øvelser med jQuery</h1>
+    </header>
+    <div id="container">
+        <h1 id="overskrift1">jQuery er smart!</h1>
+        <p id="paragraf1">jQuery er et JS-framework, der gør det lettere at lave komplekse og dynamiske sites baseret på JavaScript - men på en meget mere enkel måde pga. de indbyggede definitioner.</p>
+        <h1 class="overskrift2">Brystvorte</h1>
+        <p class="paragraf2">Det er nu en meget finurlig gevækst lige der midt i det hele. Nus den, elsk den xD</p>
+    </div>
+
+    <!--
+        Herunder inkluderes jQuery i form af reference til en CDN.
+        Man kan inkludere jQuery både i header- og body-tagget, men ved at skrive det
+        ind her umiddelbart inden body-tagget lukker, så sikrer vi dels, at hele dokumentet
+        er loadet, inden jQuery indlæses, samt at det giver en lidt bedre load-time på siden.
+    -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+            // "src" er nødvendig, men "integrity" og "crossorigin" er valgfrie.
+            // Læs om, hvad de betyder på: https://code.jquery.com/
+    </script>
+
+    <!--
+        Herunder inkluderer jeg så min egen script-fil, som indeholder de jQuery-funktioner,
+        der anvendes. Det er VIGTIGT at det først indlæses EFTER jQuery-frameworket indlæses.
+        Ellers virker det ganske enkelt ikke.
+    -->
+    <script src="main.js"></script>
 </body>
 </html>
