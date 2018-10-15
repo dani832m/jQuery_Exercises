@@ -23,17 +23,18 @@
 */
 $('p span').css('color', 'red');
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Vi kan style på et specifikt punkt på en liste uden at have navngivet punktet
 $('#liste li:first').css('color', 'pink').css('font-weight', 'bold');
 $('#liste li:last').css('color', 'blue').css('font-weight', 'bold');
 
 //Her styles der på et link med en specifik reference
+//a angiver selvfølgelig, det er et link, og inde i [] skrives den specifikke reference
 $('a[href="http://google.com"]').css('color', 'darkgreen');
 
 //ALT i dokumentet påvirkes af asterisk
-//$('h1').hide();
+//$('*').hide();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -45,3 +46,32 @@ function blink_text() {
 
 //Når scriptet loades, køres automatisk "setInterval" hvori vores blink-funktion tages som argument
 setInterval(blink_text, 1000);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* EVENTS */
+
+$('article').click(function() {
+    alert("Du har klikket på teksten!");
+});
+
+$('#baggrundsfarve').click(function() {
+    $('body').css('background-color', 'yellow');
+    alert("Baggrundsfarven bliver nu skiftet!");
+});
+
+//Trigges kun på dobbeltklik!
+$('img').dblclick(function() {
+    $('img').css('border', 'none');
+    $('img').css('height', '150px');
+    $('img').css('width', '150px');
+    //$('img').toggle();
+});
+
+$(document).on('mousemove', function(e) {
+    $('h3').html('Din mus er på koordinat (x:' + e.clientX + ', y:' + e.clientY + ') <br><br>Ram (x:300, y:300)');
+    if (e.clientX == 300 && e.clientY == 300) {
+        $('img').css('width', '100%');
+        $('img').css('height', '100%');
+    }
+});

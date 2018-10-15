@@ -1,10 +1,31 @@
 <!--
+    *** ALT HERI FUNGERER UDELUKKENDE SOM FRI LEG OG NOTER OMKRING JQUERY ***
+
     Hvad er jQuery?
     jQuery er et JS-framework, der gør det lettere at lave komplekse og dynamiske sites
     baseret på JavaScript - men på en meget mere enkel måde pga. de indbyggede definitioner.
 
     Brugbart Cheat Sheet:
     https://oscarotero.com/jquery/
+
+    Hvad er events i jQuery?
+    Events er bundet op på selektorer i HTML DOM'en. Det er igennem events at JavaScript kan
+    manipulere med HTML'en. Events kan være når musen peger på et element, når der trykkes på
+    en tast, når siden loades, når siden lukkes osv.
+
+    Her er nogle af de mest brugte events:
+    onchange        An HTML element has been changed
+    onclick         The user clicks an HTML element
+    onmouseover     The user moves the mouse over an HTML element
+    onmouseout      The user moves the mouse away from an HTML element
+    onkeydown       The user pushes a keyboard key
+    onload          The browser has finished loading the page
+
+    Det fede med events i jQuery er, at vi kan holde HTML og JS helt adskilt, fordi vi ikke
+    behøver trigge eventet inde i selve HTML'en, som vi fx gør med Vanilla JS.
+
+    Vanilla JS ->   <p onclick="alert('Test')">Klik</p>
+    jQuery ->       $('p').click(function() { alert("Klikket"); });
 -->
 
 <!DOCTYPE html>
@@ -23,6 +44,7 @@
     </header>
     <div id="container">
         <h1 id="overskrift1">jQuery er smart!</h1>
+        <img src="blomst.jpg" alt="Blomst" style="float:right;" />
         <p id="paragraf1">jQuery er et JS-framework, der gør det lettere at lave komplekse og dynamiske sites baseret på JavaScript - men på en meget mere enkel måde pga. de indbyggede definitioner.</p>
         <h1 class="overskrift2">Brystvorte</h1>
         <p class="paragraf2">Det er nu en meget <span>finurlig gevækst</span> lige der midt i det hele. Nus den, elsk den xD</p>
@@ -33,10 +55,15 @@
             <li>Punk 4</li>
             <li>Punk 5</li>
         </ul>
-        <input type="button" value="Klik på mig!" style="margin:10px;">
+        <input type="button" id="baggrundsfarve" value="Skift baggrundsfarve!" style="margin:10px;" />
         <hr><br>
         <a href="http://google.com" class="blink">Google.com</a>
     </div>
+    <!-- Selektoren "footer" og "article" er nye i HTML5 -->
+    <footer>
+        <h3>Dario R najz</h3>
+        <article>All the different visitor's actions that a web page can respond to are called events. An event represents the precise moment when something happens.</article>
+    </footer>
 
     <!--
         Herunder inkluderes jQuery i form af reference til en CDN.
@@ -55,6 +82,9 @@
         Herunder inkluderer jeg så min egen script-fil, som indeholder de jQuery-funktioner,
         der anvendes. Det er VIGTIGT at det først indlæses EFTER jQuery-frameworket indlæses.
         Ellers virker det ganske enkelt ikke.
+
+        Alternativt kan man anvende jQuery-funktionen:
+        $(document).ready(function() { INDHOLD HER });
     -->
     <script src="main.js"></script>
 </body>
