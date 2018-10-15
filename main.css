@@ -41,3 +41,18 @@ h3 {
     font-style: oblique;
     color: rgb(11, 11, 51);
 }
+
+#box1 {
+    width: 600px;
+    height: 120px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+    background-color: aquamarine;
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    font-size: 16px;
+    cursor: pointer;
+}

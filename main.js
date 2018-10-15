@@ -1,6 +1,9 @@
 /*
     Dollartegnet symboliserer, at vi arbejder med jQuery.
+    Kan også erstattes af ordet "jQuery".
 */
+
+/* SELECTION */
 
 //Funktionen skjuler alle h1-elementer i dokumentet
 //$('h1').hide();
@@ -38,19 +41,9 @@ $('a[href="http://google.com"]').css('color', 'darkgreen');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//En funktion der anvender jQuery's funktioner "blink", "fadeOut" og "fadeIn"
-function blink_text() {
-    $('.blink').fadeOut(500);
-    $('.blink').fadeIn(500);
-}
-
-//Når scriptet loades, køres automatisk "setInterval" hvori vores blink-funktion tages som argument
-setInterval(blink_text, 1000);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
 /* EVENTS */
 
+//Click events
 $('article').click(function() {
     alert("Du har klikket på teksten!");
 });
@@ -65,13 +58,53 @@ $('img').dblclick(function() {
     $('img').css('border', 'none');
     $('img').css('height', '150px');
     $('img').css('width', '150px');
-    //$('img').toggle();
+
+    /* Man KAN tilføje flere css-properties til på ovenstående måde,
+    men den mest korrekte måde ville nok nærmere være at lave det som et objekt */
+    //Eks.: $('img').css({ border: 'none', height: '150px', width: '150px' });
 });
 
-$(document).on('mousemove', function(e) {
-    $('h3').html('Din mus er på koordinat (x:' + e.clientX + ', y:' + e.clientY + ') <br><br>Ram (x:300, y:300)');
+$(document).on('mousemove', function(e) { //Når musen bevæger sig på "document"
+    $('h3').html('Din mus er på koordinat (x:'
+                    + e.clientX + ', y:' + e.clientY + ') <br><br>Ram (x:300, y:300)');
     if (e.clientX == 300 && e.clientY == 300) {
         $('img').css('width', '100%');
         $('img').css('height', '100%');
     }
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* ANIMATION & EFFECTS */
+
+//En funktion der anvender jQuery's funktioner "blink", "fadeOut" og "fadeIn"
+function blink_text() {
+    $('.blink').fadeOut(500);
+    $('.blink').fadeIn(500);
+}
+
+//Når scriptet loades, køres automatisk "setInterval" hvori vores blink-funktion tages som argument
+setInterval(blink_text, 1000);
+
+//Her leger vi med "slideUp"
+$('#boxPara').click(function() {
+    $('#box1').slideUp(2000);
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* RANDOM STUFF */
+
+var myArray = ["Hund", "Kat", "Fisk", "Marsvin", "Kanin"];
+var myArrayWithSpaces = [];
+
+console.log("Disse dyr findes i mit array: " );
+for (let index = 0; index < myArray.length; index++) {
+    console.log(myArray[index]);
+    myArrayWithSpaces += myArray[index] + " ";
+}
+
+$('h1').click(function() {
+    $('h1').html(myArrayWithSpaces);
+    $('h1').css('font-size', '16px');
 });
